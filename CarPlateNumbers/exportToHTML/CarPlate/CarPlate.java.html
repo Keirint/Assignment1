@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>CarPlate.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+CarPlate.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">CarPlate</span><span class="s2">;</span>
+<span class="s3">//In the public class CarPlate we set all the  main methods and other methods  needed for the validity and functionality</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Random</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">CarPlate </span><span class="s2">{</span>
+    <span class="s0">private static final </span><span class="s1">String Letters </span><span class="s2">=</span><span class="s4">&quot;ABCDEFGHJKLMNPQRSTUVWXYZ&quot;</span><span class="s2">;</span>
+    <span class="s0">private static final </span><span class="s1">String Numbers </span><span class="s2">= </span><span class="s4">&quot;023456789&quot;</span><span class="s2">;</span>
+    <span class="s0">private static final </span><span class="s1">Random rand </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Random</span><span class="s2">();</span>
+
+    <span class="s0">public </span><span class="s1">String generateCarPlate</span><span class="s2">() {</span>
+        <span class="s1">StringBuilder plate</span><span class="s2">= </span><span class="s0">new </span><span class="s1">StringBuilder</span><span class="s2">();</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s5">2</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++) {</span>
+            <span class="s1">plate</span><span class="s2">.</span><span class="s1">append</span><span class="s2">(</span><span class="s1">Letters</span><span class="s2">.</span><span class="s1">charAt</span><span class="s2">(</span><span class="s1">rand</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">(</span><span class="s1">Letters</span><span class="s2">.</span><span class="s1">length</span><span class="s2">())));</span>
+        <span class="s2">}</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt;</span><span class="s5">3 </span><span class="s2">; </span><span class="s1">i</span><span class="s2">++) {</span>
+            <span class="s1">plate</span><span class="s2">.</span><span class="s1">append</span><span class="s2">(</span><span class="s1">Numbers</span><span class="s2">.</span><span class="s1">charAt</span><span class="s2">(</span><span class="s1">rand</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">(</span><span class="s1">Numbers</span><span class="s2">.</span><span class="s1">length</span><span class="s2">())));</span>
+        <span class="s2">}</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s5">2</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++) {</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">rand</span><span class="s2">.</span><span class="s1">nextBoolean</span><span class="s2">()) {</span>
+                <span class="s1">plate</span><span class="s2">.</span><span class="s1">append</span><span class="s2">(</span><span class="s1">Letters</span><span class="s2">.</span><span class="s1">charAt</span><span class="s2">(</span><span class="s1">rand</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">(</span><span class="s1">Letters</span><span class="s2">.</span><span class="s1">length</span><span class="s2">())));</span>
+            <span class="s2">}</span><span class="s0">else</span><span class="s2">{</span>
+                <span class="s1">plate</span><span class="s2">.</span><span class="s1">append</span><span class="s2">(</span><span class="s1">Numbers</span><span class="s2">.</span><span class="s1">charAt</span><span class="s2">(</span><span class="s1">rand</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">(</span><span class="s1">Numbers</span><span class="s2">.</span><span class="s1">length</span><span class="s2">())));</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s0">return </span><span class="s1">plate</span><span class="s2">.</span><span class="s1">toString</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public boolean </span><span class="s1">isValidPlate</span><span class="s2">(</span><span class="s1">String plate</span><span class="s2">) {</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">plate</span><span class="s2">.</span><span class="s1">length</span><span class="s2">() != </span><span class="s5">7</span><span class="s2">) {</span>
+            <span class="s0">return false</span><span class="s2">;</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(!</span><span class="s1">isValidLETTERS</span><span class="s2">(</span><span class="s1">plate</span><span class="s2">.</span><span class="s1">substring</span><span class="s2">(</span><span class="s5">0</span><span class="s2">,</span><span class="s5">2</span><span class="s2">))){</span>
+            <span class="s0">return false</span><span class="s2">;</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(!</span><span class="s1">isValidNUMBERS</span><span class="s2">(</span><span class="s1">plate</span><span class="s2">.</span><span class="s1">substring</span><span class="s2">(</span><span class="s5">2</span><span class="s2">,</span><span class="s5">5</span><span class="s2">))) {</span>
+            <span class="s0">return false</span><span class="s2">;</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(!</span><span class="s1">isValidLETTERSorNumbers</span><span class="s2">(</span><span class="s1">plate</span><span class="s2">.</span><span class="s1">substring</span><span class="s2">(</span><span class="s5">5</span><span class="s2">,</span><span class="s5">7</span><span class="s2">))){</span>
+            <span class="s0">return false</span><span class="s2">;</span>
+        <span class="s2">}</span>
+        <span class="s0">return true</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">private boolean </span><span class="s1">isValidLETTERS</span><span class="s2">(</span><span class="s1">String letters</span><span class="s2">) {</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">char </span><span class="s1">c </span><span class="s2">: </span><span class="s1">letters</span><span class="s2">.</span><span class="s1">toUpperCase</span><span class="s2">().</span><span class="s1">toCharArray</span><span class="s2">()) {</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">c</span><span class="s2">&lt;</span><span class="s4">'A' </span><span class="s2">|| </span><span class="s1">c</span><span class="s2">&gt;</span><span class="s4">'Z' </span><span class="s2">|| </span><span class="s1">c</span><span class="s2">==</span><span class="s4">'O'</span><span class="s2">) {</span>
+                <span class="s0">return false</span><span class="s2">;</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s0">return true</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">private boolean </span><span class="s1">isValidNUMBERS</span><span class="s2">(</span><span class="s1">String numbers</span><span class="s2">) {</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">char </span><span class="s1">c </span><span class="s2">: </span><span class="s1">numbers</span><span class="s2">.</span><span class="s1">toCharArray</span><span class="s2">()) {</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">c</span><span class="s2">&lt;</span><span class="s4">'0' </span><span class="s2">|| </span><span class="s1">c</span><span class="s2">&gt;</span><span class="s4">'9'</span><span class="s2">||</span><span class="s1">c</span><span class="s2">==</span><span class="s4">'1'</span><span class="s2">) {</span>
+                <span class="s0">return false</span><span class="s2">;</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s0">return true</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">private boolean </span><span class="s1">isValidLETTERSorNumbers</span><span class="s2">(</span><span class="s1">String letters</span><span class="s2">) {</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">char </span><span class="s1">c </span><span class="s2">: </span><span class="s1">letters</span><span class="s2">.</span><span class="s1">toUpperCase</span><span class="s2">().</span><span class="s1">toCharArray</span><span class="s2">()) {</span>
+            <span class="s0">if</span><span class="s2">((</span><span class="s1">c</span><span class="s2">&lt;</span><span class="s4">'A' </span><span class="s2">|| </span><span class="s1">c</span><span class="s2">&gt;</span><span class="s4">'Z' </span><span class="s2">|| </span><span class="s1">c</span><span class="s2">==</span><span class="s4">'O'</span><span class="s2">)&amp;&amp;(</span><span class="s1">c</span><span class="s2">&lt;</span><span class="s4">'0' </span><span class="s2">|| </span><span class="s1">c</span><span class="s2">&gt;</span><span class="s4">'9' </span><span class="s2">|| </span><span class="s1">c</span><span class="s2">==</span><span class="s4">'1'</span><span class="s2">)){</span>
+                <span class="s0">return false</span><span class="s2">;</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s0">return true</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public </span><span class="s1">String getNextCarPlate</span><span class="s2">(</span><span class="s1">String plate</span><span class="s2">) {</span>
+        <span class="s0">char</span><span class="s2">[] </span><span class="s1">chars </span><span class="s2">= </span><span class="s1">plate</span><span class="s2">.</span><span class="s1">toUpperCase</span><span class="s2">().</span><span class="s1">toCharArray</span><span class="s2">();</span>
+        <span class="s1">String order </span><span class="s2">= </span><span class="s4">&quot;023456789ABCDEFGHJKLMNPQRSTUVWXYZ&quot;</span><span class="s2">;</span>
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s1">chars</span><span class="s2">.</span><span class="s1">length </span><span class="s2">- </span><span class="s5">1</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&gt;= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i</span><span class="s2">--) {</span>
+            <span class="s0">int </span><span class="s1">index </span><span class="s2">= </span><span class="s1">order</span><span class="s2">.</span><span class="s1">indexOf</span><span class="s2">(</span><span class="s1">chars</span><span class="s2">[</span><span class="s1">i</span><span class="s2">]);</span>
+
+
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">i </span><span class="s2">== </span><span class="s5">6</span><span class="s2">) {</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">index </span><span class="s2">&lt; </span><span class="s1">order</span><span class="s2">.</span><span class="s1">length</span><span class="s2">() - </span><span class="s5">1</span><span class="s2">) {</span>
+                    <span class="s1">chars</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] = </span><span class="s1">order</span><span class="s2">.</span><span class="s1">charAt</span><span class="s2">(</span><span class="s1">index </span><span class="s2">+ </span><span class="s5">1</span><span class="s2">);</span>
+                    <span class="s0">return new </span><span class="s1">String</span><span class="s2">(</span><span class="s1">chars</span><span class="s2">);</span>
+                <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+                    <span class="s1">chars</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] = </span><span class="s1">order</span><span class="s2">.</span><span class="s1">charAt</span><span class="s2">(</span><span class="s5">0</span><span class="s2">);</span>
+                    <span class="s0">continue</span><span class="s2">;</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">index </span><span class="s2">&lt; </span><span class="s1">order</span><span class="s2">.</span><span class="s1">length</span><span class="s2">() - </span><span class="s5">1</span><span class="s2">) {</span>
+                <span class="s1">chars</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] = </span><span class="s1">order</span><span class="s2">.</span><span class="s1">charAt</span><span class="s2">(</span><span class="s1">index </span><span class="s2">+ </span><span class="s5">1</span><span class="s2">);</span>
+                <span class="s0">return new </span><span class="s1">String</span><span class="s2">(</span><span class="s1">chars</span><span class="s2">);</span>
+            <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+                <span class="s1">chars</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] = </span><span class="s1">order</span><span class="s2">.</span><span class="s1">charAt</span><span class="s2">(</span><span class="s5">0</span><span class="s2">);</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s0">return new </span><span class="s1">String</span><span class="s2">(</span><span class="s1">chars</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

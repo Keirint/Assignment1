@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>CarplateGenerator.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+CarplateGenerator.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">CarPlate</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Scanner</span><span class="s2">;</span>
+<span class="s3">//In the public class CarplateGenerator we do all the compiling ,create the userface and use all the methods created on CarPlate Class.</span>
+<span class="s0">public class </span><span class="s1">CarplateGenerator </span><span class="s2">{</span>
+    <span class="s0">private </span><span class="s1">CarPlate carplate</span><span class="s2">;</span>
+
+    <span class="s0">public </span><span class="s1">CarplateGenerator</span><span class="s2">() {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">carplate</span><span class="s2">=</span><span class="s0">new </span><span class="s1">CarPlate</span><span class="s2">();</span>
+    <span class="s2">}</span>
+    <span class="s0">public </span><span class="s1">String generateRandomPlate</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">carplate</span><span class="s2">.</span><span class="s1">generateCarPlate</span><span class="s2">();</span>
+    <span class="s2">}</span>
+    <span class="s0">public </span><span class="s1">String generateNextCarPlate</span><span class="s2">(</span><span class="s1">String currentPlate</span><span class="s2">) {</span>
+        <span class="s0">if</span><span class="s2">(!</span><span class="s1">carplate</span><span class="s2">.</span><span class="s1">isValidPlate</span><span class="s2">(</span><span class="s1">currentPlate</span><span class="s2">)){</span>
+            <span class="s0">throw new </span><span class="s1">IllegalArgumentException</span><span class="s2">(</span><span class="s4">&quot;Invalid plate &quot;</span><span class="s2">+</span><span class="s1">currentPlate</span><span class="s2">);</span>
+        <span class="s2">}</span>
+        <span class="s0">return </span><span class="s1">carplate</span><span class="s2">.</span><span class="s1">getNextCarPlate</span><span class="s2">(</span><span class="s1">currentPlate</span><span class="s2">);</span>
+    <span class="s2">}</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">CarplateGenerator cg</span><span class="s2">=</span><span class="s0">new </span><span class="s1">CarplateGenerator</span><span class="s2">();</span>
+        <span class="s1">Scanner input</span><span class="s2">=</span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s1">System</span><span class="s2">.</span><span class="s1">in</span><span class="s2">);</span>
+        <span class="s1">String  userchoice</span><span class="s2">;</span>
+
+        <span class="s0">do</span><span class="s2">{</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;CarPlate Generator &quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;1. Enter a Plate Manually &quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;2. Generate Car Plate &quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;X. Exit&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Enter your choice: &quot;</span><span class="s2">);</span>
+            <span class="s1">userchoice</span><span class="s2">=</span><span class="s1">input</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">toUpperCase</span><span class="s2">();</span>
+
+
+            <span class="s0">switch </span><span class="s2">(</span><span class="s1">userchoice</span><span class="s2">) {</span>
+                <span class="s0">case </span><span class="s4">&quot;1&quot;</span><span class="s2">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Enter the car plate number: &quot;</span><span class="s2">);</span>
+                    <span class="s1">String currentPlate</span><span class="s2">=</span><span class="s1">input</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">toUpperCase</span><span class="s2">();</span>
+                    <span class="s0">try</span><span class="s2">{</span>
+                        <span class="s1">String nextCarPlate </span><span class="s2">=</span><span class="s1">cg</span><span class="s2">.</span><span class="s1">generateNextCarPlate</span><span class="s2">(</span><span class="s1">currentPlate</span><span class="s2">);</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Next Plate is&quot;</span><span class="s2">+ </span><span class="s1">nextCarPlate</span><span class="s2">);</span>
+                    <span class="s2">}</span><span class="s0">catch </span><span class="s2">(</span><span class="s1">IllegalArgumentException e</span><span class="s2">){</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">e</span><span class="s2">.</span><span class="s1">getMessage</span><span class="s2">());</span>
+                    <span class="s2">}</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+
+                <span class="s0">case </span><span class="s4">&quot;2&quot;</span><span class="s2">:</span>
+                    <span class="s1">String randomPlate</span><span class="s2">=</span><span class="s1">cg</span><span class="s2">.</span><span class="s1">generateRandomPlate</span><span class="s2">();</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Random Car PLate : &quot;</span><span class="s2">+ </span><span class="s1">randomPlate</span><span class="s2">);</span>
+                    <span class="s1">String nextPlate</span><span class="s2">=</span><span class="s1">cg</span><span class="s2">.</span><span class="s1">generateNextCarPlate</span><span class="s2">(</span><span class="s1">randomPlate</span><span class="s2">);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Next Car Plate : &quot;</span><span class="s2">+ </span><span class="s1">nextPlate</span><span class="s2">);</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+                <span class="s0">case </span><span class="s4">&quot;X&quot;</span><span class="s2">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Exiting&quot;</span><span class="s2">);</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+                <span class="s0">default</span><span class="s2">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Invalid choice.Please Try Again&quot;</span><span class="s2">);</span>
+
+            <span class="s2">}</span>
+
+
+        <span class="s2">}  </span><span class="s0">while </span><span class="s2">(!</span><span class="s1">userchoice</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s4">&quot;X&quot;</span><span class="s2">));</span>
+        <span class="s1">input</span><span class="s2">.</span><span class="s1">close</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
